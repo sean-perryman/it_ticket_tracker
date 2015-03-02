@@ -1,2 +1,3 @@
-# it_ticket_tracker
-Simple IT Help Desk Ticket Tracking
+# IT Ticket Tracker
+
+Simple IT Help Desk Ticket Tracking.

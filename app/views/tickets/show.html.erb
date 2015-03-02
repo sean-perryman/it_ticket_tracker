@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date submitted:</strong>
+  <%= @ticket.date_submitted %>
+</p>
+
+<p>
+  <strong>Date occurred:</strong>
+  <%= @ticket.date_occurred %>
+</p>
+
+<p>
+  <strong>Affected user:</strong>
+  <%= @ticket.affected_user %>
+</p>
+
+<p>
+  <strong>Problem description:</strong>
+  <%= @ticket.problem_description %>
+</p>
+
+<p>
+  <strong>Date resolved:</strong>
+  <%= @ticket.date_resolved %>
+</p>
+
+<p>
+  <strong>Problem resolution:</strong>
+  <%= @ticket.problem_resolution %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

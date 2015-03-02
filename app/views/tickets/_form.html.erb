@@ -1,41 +1,17 @@
-<%= form_for(@ticket) do |f| %>
-  <% if @ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
-
-      <ul>
-      <% @ticket.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :date_submitted %><br>
-    <%= f.datetime_select :date_submitted %>
+<%= simple_form_for @ticket, :html => {role: 'form', class: "form form-inline"} do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <%= f.input :date_submitted, :as => :hidden, input_html: { value: Time.now } %>
   </div>
-  <div class="field">
-    <%= f.label :date_occurred %><br>
-    <%= f.datetime_select :date_occurred %>
+  <div class="row">
+    <%= f.input :date_occurred %>
   </div>
-  <div class="field">
-    <%= f.label :affected_user %><br>
-    <%= f.text_field :affected_user %>
+  <div class="row">
+    <%= f.input :affected_user, :label => "Affected user" %>
   </div>
-  <div class="field">
-    <%= f.label :problem_description %><br>
-    <%= f.text_area :problem_description %>
+  <div class="row">
+    <%= f.input :problem_description, :label => "Description of the problem" %>
   </div>
-  <div class="field">
-    <%= f.label :date_resolved %><br>
-    <%= f.datetime_select :date_resolved %>
-  </div>
-  <div class="field">
-    <%= f.label :problem_resolution %><br>
-    <%= f.text_area :problem_resolution %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= f.button :submit %>
 <% end %>

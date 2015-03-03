@@ -1,11 +1,11 @@
 class DatetimePickerInput < SimpleForm::Inputs::StringInput
   def input(wrapper_options)
     value = object.send(attribute_name) if object.respond_to? attribute_name
-    display_pattern = I18n.t('datepicker.dformat', :default => '%d/%m/%Y') + ' ' + I18n.t('timepicker.dformat', :default => '%R')
+    display_pattern = I18n.t('datepicker.dformat', :default => '%m/%d/%Y') + ' ' + I18n.t('timepicker.dformat', :default => '%R')
     input_html_options[:value] ||= I18n.localize(value, :format => display_pattern) if value.present?
 
     input_html_options[:type] = 'text'
-    picker_pattern = I18n.t('datepicker.pformat', :default => 'DD/MM/YYYY') + ' ' + I18n.t('timepicker.pformat', :default => 'HH:mm')
+    picker_pattern = I18n.t('datepicker.pformat', :default => 'MM/DD/YYYY') + ' ' + I18n.t('timepicker.pformat', :default => 'HH:mm')
     dayViewHeaderFormat = I18n.t('dayViewHeaderFormat', :default => 'MMMM YYYY')
     date_options = {
         locale: I18n.locale.to_s,
@@ -19,7 +19,7 @@ class DatetimePickerInput < SimpleForm::Inputs::StringInput
       input = super(wrapper_options) # leave StringInput do the real rendering
       input += template.content_tag :span, class: 'input-group-btn' do
         template.content_tag :button, class: 'btn btn-default', type: 'button' do
-          template.content_tag :span, '', class: 'fa fa-calendar'
+          template.content_tag :span, '', class: 'glyphicon glyphicon-calendar'
         end
       end
       input

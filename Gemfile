@@ -37,6 +37,8 @@ gem 'bootswatch-rails'
 gem 'simple_form'
 gem 'haml'
 gem 'autoprefixer-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

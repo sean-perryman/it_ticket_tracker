@@ -15,3 +15,10 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
+
+$(function () {
+    $('.datetime_picker').datetimepicker();
+});

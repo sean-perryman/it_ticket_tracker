@@ -23,8 +23,11 @@ class TicketsController < ApplicationController
 
   # POST /tickets
   # POST /tickets.json
-  def create
-    @ticket = Ticket.new(ticket_params)
+  def create 
+    temp_ticket_params = ticket_params
+    temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
+    
+    @ticket = Ticket.new(temp_ticket_params)
 
     respond_to do |format|
       if @ticket.save
@@ -40,8 +43,11 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
+    temp_ticket_params = ticket_params
+    temp_ticket_params[:date_resolved] = Date.strptime(temp_ticket_params[:date_resolved], '%m/%d/%Y %I:%M')
+    
     respond_to do |format|
-      if @ticket.update(ticket_params)
+      if @ticket.update(temp_ticket_params)
         format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else

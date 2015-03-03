@@ -4,11 +4,11 @@
 	<%= simple_form_for @ticket do |f| %>
 	  <%= f.error_notification %>
 	  <div class="col-md-6">
-	    <%= f.input :date_submitted %>
-	    <%= f.input :date_occurred %>
-	    <%= f.input :affected_user %>
-	    <%= f.input :problem_description %>
-	    <%= f.input :date_resolved %>
+	    <%= f.input :date_submitted, :as => :datetime_picker, :readonly => true %>
+	    <%= f.input :date_occurred, :as => :datetime_picker, :readonly => true %>
+	    <%= f.input :affected_user, :readonly => true %>
+	    <%= f.input :problem_description, :readonly => true %>
+	    <%= f.input :date_resolved, :as => :datetime_picker %>
 	    <%= f.input :problem_resolution %>
 	    
 	    <%= f.button :submit %>

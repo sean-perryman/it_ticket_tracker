@@ -1,17 +1,11 @@
-<%= simple_form_for @ticket, :html => {role: 'form', class: "form form-inline"} do |f| %>
+<%= simple_form_for @ticket do |f| %>
   <%= f.error_notification %>
-  <div class="row">
+  <div class="col-md-6">
     <%= f.input :date_submitted, :as => :hidden, input_html: { value: Time.now } %>
+    <%= f.input :date_occurred, :label => false, :placeholder => "Date problem started" %>
+    <%= f.input :affected_user, :label => false, :placeholder => "Affected user" %>
+    <%= f.input :problem_description, :label => false, :placeholder => "Description of the problem" %>
+    
+    <%= f.button :submit %>
   </div>
-  <div class="row">
-    <%= f.input :date_occurred %>
-  </div>
-  <div class="row">
-    <%= f.input :affected_user, :label => "Affected user" %>
-  </div>
-  <div class="row">
-    <%= f.input :problem_description, :label => "Description of the problem" %>
-  </div>
-  
-  <%= f.button :submit %>
 <% end %>

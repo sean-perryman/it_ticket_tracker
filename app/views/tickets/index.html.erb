@@ -1,37 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container well">
+  <h1>All Trouble Tickets</h1>
 
-<h1>Listing Tickets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Date submitted</th>
-      <th>Date occurred</th>
-      <th>Affected user</th>
-      <th>Problem description</th>
-      <th>Date resolved</th>
-      <th>Problem resolution</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tickets.each do |ticket| %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= ticket.date_submitted %></td>
-        <td><%= ticket.date_occurred %></td>
-        <td><%= ticket.affected_user %></td>
-        <td><%= ticket.problem_description %></td>
-        <td><%= ticket.date_resolved %></td>
-        <td><%= ticket.problem_resolution %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Date submitted</th>
+        <th>Date occurred</th>
+        <th>Affected user</th>
+        <th>Date resolved</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+        <% if ticket.date_resolved.present? %>
+          <tr class="success">
+        <% else %>
+          <tr class="danger">
+        <% end %>
+          <td><%= ticket.date_submitted %></td>
+          <td><%= ticket.date_occurred %></td>
+          <td><%= ticket.affected_user %></td>
+          <td><%= ticket.date_resolved %></td>
+          <td><%= link_to 'Show', ticket, :class => 'btn btn-sm btn-default' %></td>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket), :class => 'btn btn-sm btn-default' %></td>
+          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Ticket', new_ticket_path %>
+  <br>
+
+  <%= link_to 'New Ticket', new_ticket_path, :class => "btn btn-default" %>
+</div>

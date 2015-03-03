@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: it_ticket_tracker_production
-  username: it_ticket_tracker
-  password: <%= ENV['IT_TICKET_TRACKER_DATABASE_PASSWORD'] %>
+  username: <%= ENV['POSTGRESUSER'] %>
+  password: <%= ENV['POSTGRESPASSWORD'] %>

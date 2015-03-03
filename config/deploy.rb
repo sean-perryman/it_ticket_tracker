@@ -2,7 +2,7 @@
 lock '3.1.0'
 
 set :application, 'it_ticket_tracker'
-set :repo_url, 'git@egithub.com:sean-perryman/it_ticket_tracker.git'
+set :repo_url, 'git@github.com:sean-perryman/it_ticket_tracker.git'
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/it_ticket_tracker'

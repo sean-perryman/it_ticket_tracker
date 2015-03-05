@@ -19,10 +19,10 @@
         <% else %>
           <tr class="danger">
         <% end %>
-          <td><%= DateTime.strftime(ticket.date_submitted, '%A, %d %b %Y %l:%M %p') %></td>
-          <td><%= DateTime.strftime(ticket.date_occurred, '%A, %d %b %Y %l:%M %p') %></td>
+          <td><%= ticket.date_submitted.strftime('%A, %d %b %Y %l:%M %p') %></td>
+          <td><%= ticket.date_occurred.strftime('%A, %d %b %Y %l:%M %p') %></td>
           <td><%= ticket.affected_user %></td>
-          <td><%= DateTime.strftime(ticket.date_resolved, '%A, %d %b %Y %l:%M %p') %></td>
+          <td><%= ticket.date_resolved.strftime('%A, %d %b %Y %l:%M %p') %></td>
           <td><%= link_to 'Show', ticket, :class => 'btn btn-sm btn-default' %></td>
           <td><%= link_to 'Edit', edit_ticket_path(ticket), :class => 'btn btn-sm btn-default' %></td>
           <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %></td>

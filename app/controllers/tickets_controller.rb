@@ -44,6 +44,7 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     temp_ticket_params = ticket_params
+    temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
     temp_ticket_params[:date_resolved] = Date.strptime(temp_ticket_params[:date_resolved], '%m/%d/%Y %I:%M')
     
     respond_to do |format|

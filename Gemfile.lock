@@ -52,6 +52,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    american_date (1.1.0)
     arel (6.0.0)
     autoprefixer-rails (4.0.2.2)
       execjs
@@ -202,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  american_date
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap-sass

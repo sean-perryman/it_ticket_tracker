@@ -19,13 +19,13 @@
         <% else %>
           <tr class="danger">
         <% end %>
-          <td><%= ticket.date_submitted.try(:strftime, "%m/%d/%Y at %I:%M%p") %></td>
-          <td><%= ticket.date_occurred.try(:strftime, "%A, %d %b %Y %l:%M %p") %></td>
+          <td><%= ticket.date_submitted.try(:strftime, "%a, %d %b %Y %l:%M %p") %></td>
+          <td><%= ticket.date_occurred.try(:strftime, "%a, %d %b %Y %l:%M %p") %></td>
           <td><%= ticket.affected_user %></td>
-          <td><%= ticket.date_resolved.try(:strftime, "%A, %d %b %Y %l:%M %p") %></td>
+          <td><%= ticket.date_resolved.try(:strftime, "%a, %d %b %Y %l:%M %p") %></td>
           <td><%= link_to 'Show', ticket, :class => 'btn btn-sm btn-default' %></td>
           <td><%= link_to 'Edit', edit_ticket_path(ticket), :class => 'btn btn-sm btn-default' %></td>
-          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-sm btn-danger' %></td>
+          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'hidden btn btn-sm btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>

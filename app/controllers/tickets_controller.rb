@@ -25,8 +25,9 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create 
     temp_ticket_params = ticket_params
-    temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
-    
+    #temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
+    temp_ticket_params[:date_occurred] = temp_ticket_params[:date_occurred].to_s(:db)
+
     @ticket = Ticket.new(temp_ticket_params)
 
     respond_to do |format|
@@ -44,8 +45,9 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1.json
   def update
     temp_ticket_params = ticket_params
-    temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
-    temp_ticket_params[:date_resolved] = Date.strptime(temp_ticket_params[:date_resolved], '%m/%d/%Y %I:%M')
+    temp_ticket_params[:date_submitted] = temp_ticket_params[:date_submitted].to_s(:db)
+    temp_ticket_params[:date_occurred] = temp_ticket_params[:date_occurred].to_s(:db)
+    temp_ticket_params[:date_resolved] = temp_ticket_params[:date_resolved].to_s(:db)
     
     respond_to do |format|
       if @ticket.update(temp_ticket_params)

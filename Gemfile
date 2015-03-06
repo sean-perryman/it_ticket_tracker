@@ -36,6 +36,7 @@ gem 'haml'
 gem 'autoprefixer-rails'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'american_date'
 
 # Capistrano for deployment
 gem 'capistrano', '~> 3.1.0'

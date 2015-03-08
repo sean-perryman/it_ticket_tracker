@@ -13,7 +13,7 @@
     </thead>
 
     <tbody>
-      <% @tickets.each do |ticket| %>
+      <% @tickets.order("date_submitted").each do |ticket| %>
         <% if ticket.date_resolved.present? %>
           <tr class="success">
         <% else %>

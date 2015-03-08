@@ -1,34 +1,8 @@
-<p id="notice"><%= notice %></p>
+<p>Date Submitted: <%= @ticket.date_submitted %></p>
+<p>Date Occurred: <%= @ticket.date_occurred %></p>
+<p>Affected User: <%= @ticket.affected_user %></p>
+<p>Problem Description: <%= @ticket.problem_description %></p>
+<p>Date Resolved: <%= @ticket.date_resolved %></p>
+<p>Problem Resolution: <%= @ticket.problem_resolution %></p>
 
-<p>
-  <strong>Date submitted:</strong>
-  <%= @ticket.date_submitted %>
-</p>
-
-<p>
-  <strong>Date occurred:</strong>
-  <%= @ticket.date_occurred %>
-</p>
-
-<p>
-  <strong>Affected user:</strong>
-  <%= @ticket.affected_user %>
-</p>
-
-<p>
-  <strong>Problem description:</strong>
-  <%= @ticket.problem_description %>
-</p>
-
-<p>
-  <strong>Date resolved:</strong>
-  <%= @ticket.date_resolved %>
-</p>
-
-<p>
-  <strong>Problem resolution:</strong>
-  <%= @ticket.problem_resolution %>
-</p>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<%= link_to 'Back', tickets_path, :class => "btn btn-default" %>

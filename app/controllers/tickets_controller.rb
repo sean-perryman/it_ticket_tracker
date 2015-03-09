@@ -25,8 +25,8 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create 
     temp_ticket_params = ticket_params
-    #temp_ticket_params[:date_occurred] = Date.strptime(temp_ticket_params[:date_occurred], '%m/%d/%Y %I:%M')
-    temp_ticket_params[:date_occurred] = temp_ticket_params[:date_occurred].to_s()
+    temp_ticket_params[:date_submitted] ? temp_ticket_params[:date_submitted] = temp_ticket_params[:date_submitted].to_s() : nil
+    temp_ticket_params[:date_occurred] ? temp_ticket_params[:date_occurred] = temp_ticket_params[:date_occurred].to_s() : nil
 
     @ticket = Ticket.new(temp_ticket_params)
 
